@@ -1,6 +1,6 @@
-altair==4.2.2
+streamlit==1.25.0
 pandas
-streamlit==1.29.0
+altair==4.2.2
 huggingface_hub
 requests
 python-dotenv
