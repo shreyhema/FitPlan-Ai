@@ -1,11 +1,8 @@
 altair==4.2.2
 pandas
-streamlit==1.32.0
+streamlit==1.29.0
 huggingface_hub
 requests
-transformers
-torch
-sentencepiece
 python-dotenv
 pyjwt
 werkzeug
