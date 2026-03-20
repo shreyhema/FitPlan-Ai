@@ -925,7 +925,7 @@ else:
         if st.button("✏️ Edit Profile", use_container_width=True):
             st.session_state.page = "input"
             st.session_state.edit_mode = True
-            st.rerun()
+            st.experimental_rerun()
         if st.button("⏻ Logout", use_container_width=True):
             st.session_state.authenticated = False
             st.session_state.token = None
