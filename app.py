@@ -839,7 +839,7 @@ if not st.session_state.authenticated:
                         st.session_state.token = create_jwt(user["email"], user["name"])
                         st.session_state.authenticated = True
                         st.success("✓ Welcome back!")
-                        st.rerun()
+                        st.experimental_rerun()
                     else:
                         st.error("✗ Invalid email or password")
                 else:
@@ -888,7 +888,7 @@ if not st.session_state.authenticated:
                             st.session_state.temp_signup_email = None
                             st.session_state.temp_signup_password = None
                             st.success("✓ Account created successfully!")
-                            st.rerun()
+                            st.experimental_rerun()
                         else:
                             st.error("✗ Registration failed")
                     else:
@@ -903,7 +903,7 @@ else:
     if not decoded:
         st.session_state.authenticated = False
         st.error("Session expired. Please log in again.")
-        st.rerun()
+        st.experimental_rerun()
 
     # ── SIDEBAR ──
     with st.sidebar:
@@ -914,11 +914,11 @@ else:
         st.markdown("<hr class='neon-divider'>", unsafe_allow_html=True)
 
         if st.button("◈ Dashboard", use_container_width=True):
-            st.session_state.page = "dashboard"; st.rerun()
+            st.session_state.page = "dashboard"; st.experimental_rerun()
         if st.button("◈ Workout Plan", use_container_width=True):
-            st.session_state.page = "result" if st.session_state.workout_plan else "input"; st.rerun()
+            st.session_state.page = "result" if st.session_state.workout_plan else "input"; st.experimental_rerun()
         if st.button("◈ Dietary Plan", use_container_width=True):
-            st.session_state.page = "diet"; st.rerun()
+            st.session_state.page = "diet"; st.experimental_rerun()
 
         st.markdown("<hr class='neon-divider'>", unsafe_allow_html=True)
 
@@ -929,7 +929,7 @@ else:
         if st.button("⏻ Logout", use_container_width=True):
             st.session_state.authenticated = False
             st.session_state.token = None
-            st.session_state.otp = None; st.rerun()
+            st.session_state.otp = None; st.experimental_rerun()
 
     # ══ DASHBOARD ══
     if st.session_state.page == "dashboard":  
@@ -1018,7 +1018,7 @@ else:
                                             "bmi": bmi, "status": status, "color": color, "goal": goal, "level": level, "equip": equip}
                 st.session_state.page = "result"
                 st.session_state.edit_mode = False  # Reset edit mode
-                st.rerun()
+                st.experimental_rerun()
 
     # ══ RESULT ══
     elif st.session_state.page == "result":
